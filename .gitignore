@@ -9,6 +9,7 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 web/app/cache/*
 web/app/languages/
+web/app/db.php
 
 # WordPress
 web/wp
