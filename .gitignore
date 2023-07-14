@@ -2,6 +2,7 @@
 web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
+!web/app/mu-plugins/wp-helper-migrations
 web/app/themes/twentytwentythree/
 web/app/themes/neve/
 web/app/upgrade
@@ -25,6 +26,9 @@ web/.htaccess
 
 # Composer
 /vendor
+
+# VSCode
+.vscode
 
 # WP-CLI
 wp-cli.local.yml
