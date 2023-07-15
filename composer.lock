@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "335a29ede0ba5852098eccdcf2dafcf3",
+    "content-hash": "5d6a80127e6a915c1864d61a37ddda66",
     "packages": [
         {
             "name": "composer/installers",
@@ -1137,22 +1137,22 @@
             "homepage": "https://wordpress.org/plugins/memcached/"
         },
         {
-            "name": "wpackagist-theme/neve",
-            "version": "3.6.4",
+            "name": "wpackagist-theme/twentytwentythree",
+            "version": "1.1",
             "source": {
                 "type": "svn",
-                "url": "https://themes.svn.wordpress.org/neve/",
-                "reference": "3.6.4"
+                "url": "https://themes.svn.wordpress.org/twentytwentythree/",
+                "reference": "1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/neve.3.6.4.zip"
+                "url": "https://downloads.wordpress.org/theme/twentytwentythree.1.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/neve/"
+            "homepage": "https://wordpress.org/themes/twentytwentythree/"
         }
     ],
     "packages-dev": [

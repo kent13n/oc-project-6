@@ -31,7 +31,7 @@ wp core install --title="Planty" --url=planty.local --admin_name=admin --admin_p
 ```
 5. Active the main theme
 ```
-wp theme activate neve-child
+wp theme activate planty
 ```
 6. Run the migrations to set up the necessary database tables and data by running the following command:
 ```
