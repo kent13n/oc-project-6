@@ -46,14 +46,14 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/neve": "^3.6",
-    "wpackagist-plugin/memcached": "^4.0",
-    "kent13n/wp-helper-migrations": "^0.0.1"
+    "wpackagist-plugin/memcached": "^4.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
     "roave/security-advisories": "dev-latest",
     "wpackagist-plugin/query-monitor": "^3.12",
-    "symfony/var-dumper": "^6.3"
+    "symfony/var-dumper": "^6.3",
+    "kent13n/wp-helper-migrations": "^0.0.1"
   },
   "config": {
     "optimize-autoloader": true,
