@@ -106,3 +106,35 @@ ul.primary-menu {
 	font-size: 16px !important;
 	font-weight: var(--bold);
 }
+
+/****** Footer Nav ***********/
+#site-footer {
+	height: 60px;
+	padding: 0;
+	margin: 0;
+}
+
+#site-footer nav {
+	height: 100%;
+}
+
+.footer-menu {
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-menu li {
+	margin: 0;
+}
+
+.footer-menu a {
+	color: #000 !important;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.footer-menu a:hover {
+	text-decoration: none !important;
+}
