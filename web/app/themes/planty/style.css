@@ -70,6 +70,7 @@ ul.primary-menu {
 	padding: 0 60px;
 	font-weight: var(--bold);
 	color: #fff !important;
+	font-size: 16px !important;
 }
 
 .primary-menu > li > a {
@@ -82,10 +83,12 @@ ul.primary-menu {
 	height: 100%;
 	color: #000 !important;
 	text-decoration: none;
+	transition-duration: 0ms;
 }
 
 .primary-menu > li > a:hover {
 	text-decoration: none;
+	font-size: 13px;
 	font-weight: var(--bold);
 }
 
@@ -100,5 +103,6 @@ ul.primary-menu {
 	-ms-user-select: none;
 	user-select: none;
 	pointer-events: none;
+	font-size: 16px !important;
 	font-weight: var(--bold);
 }
