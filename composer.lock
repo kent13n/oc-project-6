@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d6a80127e6a915c1864d61a37ddda66",
+    "content-hash": "e7049a634227f68437c50b2b7d620c3a",
     "packages": [
         {
             "name": "composer/installers",
@@ -1137,22 +1137,22 @@
             "homepage": "https://wordpress.org/plugins/memcached/"
         },
         {
-            "name": "wpackagist-theme/twentytwentythree",
-            "version": "1.1",
+            "name": "wpackagist-theme/twentytwenty",
+            "version": "2.2",
             "source": {
                 "type": "svn",
-                "url": "https://themes.svn.wordpress.org/twentytwentythree/",
-                "reference": "1.1"
+                "url": "https://themes.svn.wordpress.org/twentytwenty/",
+                "reference": "2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentythree.1.1.zip"
+                "url": "https://downloads.wordpress.org/theme/twentytwenty.2.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/twentytwentythree/"
+            "homepage": "https://wordpress.org/themes/twentytwenty/"
         }
     ],
     "packages-dev": [
@@ -1966,15 +1966,15 @@
         },
         {
             "name": "wpackagist-plugin/query-monitor",
-            "version": "3.13.0",
+            "version": "3.13.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/query-monitor/",
-                "reference": "tags/3.13.0"
+                "reference": "tags/3.13.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.13.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.13.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

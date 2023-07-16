@@ -1,9 +1,17 @@
 /*
 Theme Name:     Planty
 Theme URI:      
-Description:    Twentytwentythree child theme.
+Description:    Twentytwenty child theme.
 Author:         Me
 Author URI:     
-Template:       twentytwentythree
+Template:       twentytwenty
 Version:        0.1.0
 */
+
+* {
+    font-family: "Syne", sans-serif;
+}
+
+body {
+	background: #fff;
+}
