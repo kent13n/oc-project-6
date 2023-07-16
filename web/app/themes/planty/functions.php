@@ -32,7 +32,7 @@ function filter_nav_menu_items($data, $args)
 		$admin_link = "<li class=\"menu-item\"><a href=\"{$admin_url}\" data-text=\"Admin\">Admin</a></li>";
 		$items = preg_split("/\n/", $data, -1, PREG_SPLIT_NO_EMPTY);
 		foreach ($items as $key => $item) {
-			if ($key === count($items) - 1) {
+			if (is_user_logged_in() && $key === count($items) - 1) {
 				$html .= $admin_link;
 			}
 
