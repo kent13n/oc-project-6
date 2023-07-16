@@ -8,10 +8,97 @@ Template:       twentytwenty
 Version:        0.1.0
 */
 
+/****** General ***********/
+:root {
+	--main-color: #dc9f96;
+	--main-bg-color: #ece2da;
+	--filter-bg-color: #deebff;
+	--alt-bg-color: #d9d9d9;
+	--button-nav-color: #dc9f96;
+	--button-hover: #c02e44;
+	--order-btn: #e0b9b4;
+}
+
 * {
-    font-family: "Syne", sans-serif;
+	font-family: "Syne", sans-serif;
 }
 
 body {
 	background: #fff;
+}
+
+/****** Header ***********/
+
+#site-header {
+	height: 80px;
+}
+
+.header-inner {
+	height: 100%;
+	width: 100%;
+	max-width: 100%;
+	padding: 0 0 0 37px;
+	margin: 0;
+}
+
+/****** Primary Nav ***********/
+.header-navigation-wrapper,
+.primary-menu-wrapper {
+	height: 100%;
+}
+
+ul.primary-menu {
+	--bold: 700;
+	height: 100%;
+	margin: 0;
+}
+
+.primary-menu > li {
+	margin: 0;
+}
+
+.primary-menu li:last-of-type {
+	margin-left: 30px;
+	background-color: var(--button-nav-color);
+}
+
+.primary-menu li:last-of-type:hover {
+	background-color: var(--button-hover);
+}
+
+.primary-menu > li:last-of-type > a {
+	padding: 0 60px;
+	font-weight: var(--bold);
+	color: #fff !important;
+}
+
+.primary-menu > li > a {
+	font-size: 16px;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 30px;
+	height: 100%;
+	color: #000 !important;
+	text-decoration: none;
+}
+
+.primary-menu > li > a:hover {
+	text-decoration: none;
+	font-weight: var(--bold);
+}
+
+.primary-menu > li > a::after {
+	content: attr(data-text);
+	content: attr(data-text) / "";
+	height: 0;
+	visibility: hidden;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	font-weight: var(--bold);
 }
