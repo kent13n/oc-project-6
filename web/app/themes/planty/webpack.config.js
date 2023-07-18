@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
     entry: {
         'testimonial': './blocks/testimonial/index.jsx',
+        'tastes': './blocks/tastes/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'blocks/dist'),

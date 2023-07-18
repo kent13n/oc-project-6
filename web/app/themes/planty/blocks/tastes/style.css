@@ -1,0 +1,77 @@
+/**
+ * The following styles get applied both on the front of your site and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-planty-tastes {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	column-gap: 30px;
+	row-gap: 40px;
+	margin: 0 auto;
+}
+
+.wp-block-planty-tastes > .taste {
+	position: relative;
+	max-width: 394px;
+	height: 263px;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.wp-block-planty-tastes > .taste:nth-child(odd) {
+	justify-self: right;
+}
+
+.wp-block-planty-tastes > .taste:nth-child(even) {
+	justify-self: left;
+}
+
+.wp-block-planty-tastes > .taste img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+}
+
+.wp-block-planty-tastes > .taste h3 {
+	font-weight: 800;
+	font-size: 48px;
+	line-height: 58px;
+	text-align: center;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 1;
+	word-break: normal;
+}
+
+@media (max-width: 992px) {
+	.wp-block-planty-tastes {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.wp-block-planty-tastes > .taste:nth-child(odd) {
+		justify-self: center;
+	}
+
+	.wp-block-planty-tastes > .taste:nth-child(even) {
+		justify-self: center;
+	}
+}
+
+@media (max-width: 500px) {
+	.wp-block-planty-tastes > .taste h3 {
+		font-size: 30px;
+		line-height: 36px;
+	}
+}

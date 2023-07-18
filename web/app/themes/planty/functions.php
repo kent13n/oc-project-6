@@ -64,6 +64,7 @@ function register_custom_blocks()
 
 	$dir = get_stylesheet_directory() . '/blocks';
 
+	// register testimonial custom block
 	wp_register_script(
 		'testimonial',
 		get_stylesheet_directory_uri() . '/blocks/dist/testimonial.js',
@@ -90,16 +91,43 @@ function register_custom_blocks()
 		'editor_style' => 'testimonial-editor',
 		'style' => 'testimonial',
 		'attributes' => [
-			'content' => ['type' => 'string', 'default' => ''],
-			'title' => ['type' => 'string', 'default' => ''],
-			'color' => ['type' => 'string', 'default' => '#000'],
-			'imageID' => ['type' => 'string', 'default' => ''],
-			'imageSrc' => ['type' => 'string', 'default' => ''],
-			'imageAlt' => ['type' => 'string', 'default' => ''],
 			'nb' => ['type' => 'number', 'default' => 3],
 			'testimonials' => ['type' => 'array', 'default' => []]
 		],
 		'render_callback' => 'testimonial_render'
+	));
+
+	// register tastes custom block
+	wp_register_script(
+		'tastes',
+		get_stylesheet_directory_uri() . '/blocks/dist/tastes.js',
+		['wp-blocks', 'wp-editor', 'wp-i18n', 'wp-element', 'wp-components'],
+		filemtime("{$dir}/dist/tastes.js")
+	);
+
+	wp_register_style(
+		'tastes-editor',
+		get_stylesheet_directory_uri() . '/blocks/tastes/editor.css',
+		[],
+		filemtime("{$dir}/tastes/editor.css")
+	);
+
+	wp_register_style(
+		'tastes',
+		get_stylesheet_directory_uri() . "/blocks/tastes/style.css",
+		[],
+		filemtime("{$dir}/tastes/style.css")
+	);
+
+	register_block_type('planty/tastes', array(
+		'editor_script' => 'tastes',
+		'editor_style' => 'tastes-editor',
+		'style' => 'tastes',
+		'attributes' => [
+			'nb' => ['type' => 'number', 'default' => 4],
+			'tastes' => ['type' => 'array', 'default' => []]
+		],
+		'render_callback' => 'tastes_render'
 	));
 }
 
@@ -121,6 +149,26 @@ function testimonial_render(array $attributes)
 					<h2>{$title}</h2>
 					<p>{$content}</p>
 				</div>
+			</div>
+		HTML;
+	}
+
+	return $html . '</div>';
+}
+
+function tastes_render(array $attributes)
+{
+	$html = '<div class="wp-block-planty-tastes">';
+	$tastes = array_slice($attributes['tastes'], 0, $attributes['nb']);
+
+	foreach ($tastes as $taste) {
+		$imageSrc = isset($taste['imageSrc']) ? $taste['imageSrc'] : '';
+		$title = isset($taste['title']) ? $taste['title'] : '';
+
+		$html .= <<<HTML
+			<div class="taste">
+				<img src="{$imageSrc}">
+				<h3>{$title}</h3>
 			</div>
 		HTML;
 	}
