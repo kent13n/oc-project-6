@@ -7,7 +7,6 @@
 .wp-block-planty-testimonial {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	justify-items: center;
 	gap: 70px;
 	max-width: 1175px;
 	margin: 0 auto;
@@ -34,6 +33,7 @@
 	font-size: 30px;
 	line-height: 36px;
 	font-weight: 700;
+	word-break: normal;
 }
 
 .wp-block-planty-testimonial .testimonial-content p {
@@ -55,5 +55,6 @@
 @media (max-width: 767.98px) {
 	.wp-block-planty-testimonial {
 		grid-template-columns: repeat(1, 1fr);
+		justify-items: center;
 	}
 }
