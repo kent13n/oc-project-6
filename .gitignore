@@ -5,6 +5,7 @@ web/app/mu-plugins/*/
 !web/app/mu-plugins/wp-helper-migrations
 web/app/themes/twentytwenty/
 !web/app/themes/planty/
+web/app/themes/planty/node_modules
 web/app/upgrade
 !web/app/uploads/.gitkeep
 web/app/cache/*
@@ -25,6 +26,9 @@ web/.htaccess
 
 # Composer
 /vendor
+
+# Node
+
 
 # VSCode
 .vscode
