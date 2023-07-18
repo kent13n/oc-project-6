@@ -1,0 +1,48 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-planty-testimonial {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 70px;
+	max-width: 1175px;
+	margin: 0 auto;
+}
+
+.wp-block-planty-testimonial .image-button {
+	padding: 0;
+	margin: 0;
+}
+
+.wp-block-planty-testimonial > .testimonial {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.wp-block-planty-testimonial img {
+	max-width: 126px;
+}
+
+.wp-block-planty-testimonial .testimonial-content {
+	margin-left: 20px;
+	max-width: 200px;
+}
+
+.wp-block-planty-testimonial .testimonial-content h2 {
+	margin: 0 0 10px 0;
+	color: #3b8e46;
+	font-size: 30px;
+	line-height: 36px;
+	font-weight: 700;
+}
+
+.wp-block-planty-testimonial .testimonial-content p {
+	margin: 0;
+	color: #000;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+}

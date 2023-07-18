@@ -12,25 +12,51 @@ Version:        0.1.0
 :root {
 	--main-color: #dc9f96;
 	--main-bg-color: #ece2da;
-	--filter-bg-color: #deebff;
-	--alt-bg-color: #d9d9d9;
+	--title-color: #d2776a;
+	--alt-title-color: #3b8e46;
 	--button-nav-color: #dc9f96;
 	--button-hover: #c02e44;
 	--order-btn: #e0b9b4;
 }
 
 * {
-	font-family: "Syne", sans-serif;
+	font-family: "Syne", sans-serif !important;
 }
 
 body {
 	background: #fff;
 }
 
+h1 {
+	font-weight: 800;
+	font-size: 38px;
+	line-height: 45px;
+}
+
+h2 {
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 36px;
+}
+
+h3 {
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+}
+
+p {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+}
+
 /****** Header ***********/
 
 #site-header {
 	height: 80px;
+	max-width: 1440px;
+	margin: 0 auto;
 }
 
 .header-inner {
@@ -82,7 +108,7 @@ ul.primary-menu {
 	padding: 0 30px;
 	height: 100%;
 	color: #000 !important;
-	text-decoration: none;
+	text-decoration: none !important;
 	transition-duration: 0ms;
 }
 
@@ -111,7 +137,7 @@ ul.primary-menu {
 #site-footer {
 	height: 60px;
 	padding: 0;
-	margin: 0;
+	margin: 15px 0 0 0;
 }
 
 #site-footer nav {
@@ -137,4 +163,178 @@ ul.primary-menu {
 
 .footer-menu a:hover {
 	text-decoration: none !important;
+}
+
+/****** Main page ***********/
+
+/****** Home page ***********/
+.can-left-side {
+	margin-top: 90px !important;
+	margin-right: -198px !important;
+	z-index: 0;
+}
+
+.can-of-planty {
+	position: relative;
+	z-index: 1;
+	margin: 0 !important;
+}
+
+.can-right-side {
+	margin-top: 90px !important;
+	margin-left: -210px !important;
+	z-index: 0;
+}
+
+.no-padding-bottom {
+	padding-bottom: 0 !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.post-inner {
+	padding: 0 !important;
+}
+
+.divider-shadow {
+	margin-top: -30px !important;
+	width: 100%;
+	overflow: hidden;
+}
+
+.divider {
+	height: 40px !important;
+	width: calc(100% + 40px);
+	max-width: unset;
+	margin-left: -20px;
+}
+
+.wave-shadow {
+	height: 40px;
+	width: 100%;
+	border-radius: 0 0 60% 60%;
+	box-shadow: 0 10px 0 #e3d9d0;
+	padding: 0 !important;
+	margin: 0 0 75px 0 !important;
+}
+
+.caption-title {
+	font-weight: 800;
+}
+
+.taste-cover {
+	position: relative !important;
+	max-width: 393px !important;
+	padding: 0;
+}
+
+.people-notices {
+	max-width: 1335px !important;
+}
+
+.people-notice.wp-block-group .wp-block-group {
+	max-width: 200px !important;
+	margin-left: 10px !important;
+}
+
+.people-notice.wp-block-group .wp-block-image img {
+	max-width: 126px;
+	width: 100%;
+	height: auto;
+}
+
+.people-notice .wp-block-group h2.wp-block-heading {
+	margin: 0 0 10px 0;
+	font-weight: 700;
+	font-size: 30px;
+	color: #3b8e46;
+	line-height: 36px;
+}
+
+.people-notice .wp-block-group p {
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.taste-cover.wp-block-cover .wp-block-cover__inner-container {
+	width: calc(100% - 3rem);
+}
+
+.wp-block-button__link {
+	border-radius: 5px !important;
+	padding: 9px 57px !important;
+	background: var(--order-btn) !important;
+	font-size: 15px !important;
+	line-height: 37px !important;
+	text-transform: none !important;
+	text-decoration: none !important;
+}
+
+.wp-block-button .wp-block-button__link:hover {
+	background: var(--button-hover) !important;
+	text-decoration: none !important;
+}
+
+/* Nous rencontrer */
+
+.with-flower.wp-block-cover .wp-block-cover__inner-container {
+	margin-top: 180px;
+	max-width: 700px;
+}
+
+.with-flower.wp-block-cover {
+	height: 300px;
+	min-height: unset;
+	max-width: 1440px !important;
+	margin: 0 auto !important;
+}
+
+.with-flower.wp-block-cover h1 {
+	margin-bottom: 27px !important;
+	font-weight: 800;
+	font-size: 38px;
+	line-height: 45px;
+	color: var(--title-color) !important;
+}
+
+.with-flower.wp-block-cover .wp-block-cover__image-background {
+	width: 150px;
+	height: 150px;
+	top: 54px;
+	left: 150px;
+}
+
+.our-team.wp-block-columns {
+	max-width: 820px !important;
+	margin: 0 auto;
+}
+
+.our-team.wp-block-columns .wp-block-column .wp-block-group .wp-block-image {
+	margin: 0 !important;
+}
+
+.our-team.wp-block-columns .wp-block-column .wp-block-group h3 {
+	margin: 10px 0 0 0;
+	font-size: 20px;
+	line-height: 24px;
+	font-weight: 700;
+}
+
+/* Gutenberg editor */
+.wp-block {
+	max-width: 100%;
+}
+
+.wp-block[data-align="wide"] {
+	max-width: 100%;
+}
+
+.wp-block[data-align="full"] {
+	max-width: none;
 }

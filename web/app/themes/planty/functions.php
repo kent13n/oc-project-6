@@ -47,3 +47,93 @@ function filter_nav_menu_items($data, $args)
 }
 
 add_filter('wp_nav_menu_items', 'filter_nav_menu_items', 10, 2);
+
+function planty_after_setup_theme()
+{
+	add_theme_support('editor-styles');
+	add_editor_style('style.css');
+}
+add_action('after_setup_theme', 'planty_after_setup_theme');
+
+
+function register_custom_blocks()
+{
+	if (!function_exists('register_block_type')) {
+		return;
+	}
+
+	$dir = get_stylesheet_directory() . '/blocks';
+
+	wp_register_script(
+		'testimonial',
+		get_stylesheet_directory_uri() . '/blocks/dist/testimonial.js',
+		['wp-blocks', 'wp-editor', 'wp-i18n', 'wp-element', 'wp-components'],
+		filemtime("{$dir}/dist/testimonial.js")
+	);
+
+	wp_register_style(
+		'testimonial-editor',
+		get_stylesheet_directory_uri() . '/blocks/testimonial/editor.css',
+		[],
+		filemtime("{$dir}/testimonial/editor.css")
+	);
+
+	wp_register_style(
+		'testimonial',
+		get_stylesheet_directory_uri() . "/blocks/testimonial/style.css",
+		[],
+		filemtime("{$dir}/testimonial/style.css")
+	);
+
+	register_block_type('planty/testimonial', array(
+		'editor_script' => 'testimonial',
+		'editor_style' => 'testimonial-editor',
+		'style' => 'testimonial',
+		'attributes' => [
+			'content' => ['type' => 'string', 'default' => ''],
+			'title' => ['type' => 'string', 'default' => ''],
+			'color' => ['type' => 'string', 'default' => '#000'],
+			'imageID' => ['type' => 'string', 'default' => ''],
+			'imageSrc' => ['type' => 'string', 'default' => ''],
+			'imageAlt' => ['type' => 'string', 'default' => ''],
+			'nb' => ['type' => 'number', 'default' => 3],
+			'testimonials' => ['type' => 'array', 'default' => []]
+		],
+		'render_callback' => 'testimonial_render'
+	));
+}
+
+add_action('init', 'register_custom_blocks');
+
+function testimonial_render(array $attributes)
+{
+	$html = '<div class="wp-block-planty-testimonial">';
+	$testimonials = array_slice($attributes['testimonials'], 0, $attributes['nb']);
+	foreach ($testimonials as $testimonial) {
+		$imageSrc = isset($testimonial['imageSrc']) ? $testimonial['imageSrc'] : '';
+		$title = isset($testimonial['title']) ? $testimonial['title'] : '';
+		$content = isset($testimonial['content']) ? $testimonial['content'] : '';
+
+		$html .= <<<HTML
+			<div class="testimonial">
+				<img src="{$imageSrc}">
+				<div class="testimonial-content">
+					<h2>{$title}</h2>
+					<p>{$content}</p>
+				</div>
+			</div>
+		HTML;
+	}
+
+	return $html . '</div>';
+}
+
+function add_custom_font()
+{
+	echo <<<HTML
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+	HTML;
+}
+add_action('admin_head', 'add_custom_font');
