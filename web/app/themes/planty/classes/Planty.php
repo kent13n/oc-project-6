@@ -26,6 +26,13 @@ class Planty
 			'nb' => ['type' => 'number', 'default' => 4],
 			'tastes' => ['type' => 'array', 'default' => []]
 		]))->Register();
+
+		(new JSXBlock\SectionBlock('section', [
+			'backgroundColor' => ['type' => 'string', 'default' => ''],
+			'waveSeparator' => ['type' => 'boolean', 'default' => false],
+			'waveMarker' => ['type' => 'boolean', 'default' => false],
+			'waveHeight' => ['type' => 'number', 'default' => 40]
+		]))->Register();
 	}
 
 	public function scripts()
