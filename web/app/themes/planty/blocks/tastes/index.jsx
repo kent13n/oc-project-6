@@ -1,7 +1,13 @@
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, MediaUpload, MediaUploadCheck } =
 	wp.blockEditor;
-const { ColorPicker, PanelBody, TextControl, Button } = wp.components;
+const {
+	ColorPicker,
+	PanelBody,
+	TextControl,
+	Button,
+	__experimentalNumberControl,
+} = wp.components;
 const { __ } = wp.i18n;
 
 registerBlockType("planty/tastes", {
@@ -10,7 +16,8 @@ registerBlockType("planty/tastes", {
 	category: "theme",
 	edit({ className, attributes, setAttributes }) {
 		const { nb, tastes } = attributes;
-		const nb_tastes = typeof nb === "number" && nb > 0 ? nb : 1;
+		const nb_tastes =
+			parseInt(nb) !== NaN && parseInt(nb) > 0 ? parseInt(nb) : 1;
 
 		const elements = [...Array(nb_tastes)].map((_, i) => {
 			return (
@@ -50,23 +57,23 @@ registerBlockType("planty/tastes", {
 							}}
 						/>
 					</MediaUploadCheck>
-                    <RichText
-                        tagName="h3"
-                        placeholder="Nom"
-                        value={
-                            typeof tastes[i] !== "undefined"
-                                ? tastes[i].title
-                                : ""
-                        }
-                        onChange={(title) => {
-                            if (!tastes[i]) tastes[i] = {};
-                            const item = { ...tastes[i] };
-                            item.title = title;
-                            const items = [...tastes];
-                            items[i] = item;
-                            setAttributes({ tastes: items });
-                        }}
-                    />
+					<RichText
+						tagName="h3"
+						placeholder="Nom"
+						value={
+							typeof tastes[i] !== "undefined"
+								? tastes[i].title
+								: ""
+						}
+						onChange={(title) => {
+							if (!tastes[i]) tastes[i] = {};
+							const item = { ...tastes[i] };
+							item.title = title;
+							const items = [...tastes];
+							items[i] = item;
+							setAttributes({ tastes: items });
+						}}
+					/>
 				</div>
 			);
 		});
@@ -75,23 +82,22 @@ registerBlockType("planty/tastes", {
 			<div className={className}>
 				<InspectorControls>
 					<PanelBody title="Goûts" initialOpen={false}>
-						<TextControl
+						<__experimentalNumberControl
 							label="Nombre de goûts:"
+							min={0}
+							max={12}
 							value={attributes.nb}
 							onChange={(val) => {
-								if (val === "") setAttributes({ nb: val });
-
-								let nb = parseInt(val);
-								if (nb !== NaN && nb > 0) {
-									setAttributes({ nb });
-								}
+								setAttributes({
+									nb: val,
+								});
 							}}
 						/>
 					</PanelBody>
 				</InspectorControls>
 				{elements}
 			</div>
-		)
+		);
 	},
 	save() {
 		return null;

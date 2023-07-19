@@ -1,7 +1,13 @@
 const { registerBlockType } = wp.blocks;
 const { RichText, InspectorControls, MediaUpload, MediaUploadCheck } =
 	wp.blockEditor;
-const { ColorPicker, PanelBody, TextControl, Button } = wp.components;
+const {
+	ColorPicker,
+	PanelBody,
+	TextControl,
+	Button,
+	__experimentalNumberControl,
+} = wp.components;
 const { __ } = wp.i18n;
 
 registerBlockType("planty/testimonial", {
@@ -10,8 +16,9 @@ registerBlockType("planty/testimonial", {
 	category: "theme",
 	edit({ className, attributes, setAttributes }) {
 		const { nb, testimonials } = attributes;
+		const nb_testimonials =
+			parseInt(nb) !== NaN && parseInt(nb) > 0 ? parseInt(nb) : 1;
 
-		const nb_testimonials = typeof nb === "number" && nb > 0 ? nb : 1;
 		const elements = [...Array(nb_testimonials)].map((_, i) => {
 			return (
 				<div className="testimonial" key={i}>
@@ -94,16 +101,15 @@ registerBlockType("planty/testimonial", {
 			<div className={className}>
 				<InspectorControls>
 					<PanelBody title="Témoignages" initialOpen={false}>
-						<TextControl
+						<__experimentalNumberControl
 							label="Nombre de témoignages:"
+							min={0}
+							max={12}
 							value={attributes.nb}
 							onChange={(val) => {
-								if (val === "") setAttributes({ nb: val });
-
-								let nb = parseInt(val);
-								if (nb !== NaN && nb > 0) {
-									setAttributes({ nb });
-								}
+								setAttributes({
+									nb: val,
+								});
 							}}
 						/>
 					</PanelBody>
