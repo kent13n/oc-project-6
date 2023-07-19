@@ -19,5 +19,8 @@ module.exports = {
                 }
             }
         ]
+    },
+    watchOptions: {
+        poll: 1000 // Mandatory for WSL
     }
 }
