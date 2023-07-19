@@ -71,7 +71,27 @@ registerBlockType("planty/tastes", {
 			);
 		});
 
-		return <div className={className}>{elements}</div>;
+		return (
+			<div className={className}>
+				<InspectorControls>
+					<PanelBody title="Goûts" initialOpen={false}>
+						<TextControl
+							label="Nombre de goûts:"
+							value={attributes.nb}
+							onChange={(val) => {
+								if (val === "") setAttributes({ nb: val });
+
+								let nb = parseInt(val);
+								if (nb !== NaN && nb > 0) {
+									setAttributes({ nb });
+								}
+							}}
+						/>
+					</PanelBody>
+				</InspectorControls>
+				{elements}
+			</div>
+		)
 	},
 	save() {
 		return null;
