@@ -4,6 +4,11 @@ namespace Planty\Theme\JSXBlock;
 
 class TastesBlock extends JSXBlock
 {
+    public array $attributes = [
+        'nb' => ['type' => 'number', 'default' => 4],
+        'tastes' => ['type' => 'array', 'default' => []]
+    ];
+
     public function TastesRender(array $attributes)
     {
         $html = '<div class="wp-block-planty-tastes">';

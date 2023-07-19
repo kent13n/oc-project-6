@@ -4,6 +4,11 @@ namespace Planty\Theme\JSXBlock;
 
 class TestimonialBlock extends JSXBlock
 {
+    public array $attributes = [
+        'nb' => ['type' => 'number', 'default' => 3],
+        'testimonials' => ['type' => 'array', 'default' => []]
+    ];
+
     public function TestimonialRender(array $attributes)
     {
         $html = '<div class="wp-block-planty-testimonial">';

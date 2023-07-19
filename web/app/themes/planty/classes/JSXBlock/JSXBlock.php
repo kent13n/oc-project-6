@@ -7,13 +7,11 @@ class JSXBlock
     public string $dir = '';
     public string $name = '';
     public array $attributes = [];
-    public array $components = [];
+    public array $components = ['wp-blocks', 'wp-editor', 'wp-i18n', 'wp-element', 'wp-components'];
 
-    public function __construct(string $name, array $attributes, array $components = ['wp-blocks', 'wp-editor', 'wp-i18n', 'wp-element', 'wp-components'])
+    public function __construct(string $name)
     {
         $this->name = $name;
-        $this->attributes = $attributes;
-        $this->components = $components;
         $this->dir = get_stylesheet_directory() . '/blocks';
     }
 
