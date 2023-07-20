@@ -76,16 +76,18 @@ p {
 
 #site-header {
 	height: 80px;
-	max-width: 1440px;
+	max-width: 100%;
+	width: 100%;
 	margin: 0 auto;
+	background-color: #fff;
 }
 
 .header-inner {
 	height: 100%;
 	width: 100%;
-	max-width: 100%;
+	max-width: 1440px;
 	padding: 0 0 0 37px;
-	margin: 0;
+	margin: 0 auto;
 }
 
 /****** Primary Nav ***********/
