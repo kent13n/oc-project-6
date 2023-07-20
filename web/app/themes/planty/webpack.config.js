@@ -5,6 +5,7 @@ module.exports = {
         'testimonial': './blocks/testimonial/index.jsx',
         'tastes': './blocks/tastes/index.jsx',
         'section': './blocks/section/index.jsx',
+        'product-highlight': './blocks/product-highlight/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'blocks/dist'),

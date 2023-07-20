@@ -20,6 +20,7 @@ class Planty
 		(new JSXBlock\TestimonialBlock('testimonial'))->Register();
 		(new JSXBlock\TastesBlock('tastes'))->Register();
 		(new JSXBlock\SectionBlock('section'))->Register();
+		(new JSXBlock\ProductHighlightBlock('product-highlight'))->Register();
 	}
 
 	public function scripts()

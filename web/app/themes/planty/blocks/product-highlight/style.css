@@ -1,0 +1,51 @@
+/**
+ * The following styles get applied both on the front of your site and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-planty-product-highlight {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+}
+
+.wp-block-planty-product-highlight > img:first-of-type {
+	position: absolute;
+	z-index: 0;
+	left: calc(50% - 180px);
+	top: 135px;
+	transform: translateX(-50%);
+	width: 350px;
+	max-width: unset;
+}
+
+.wp-block-planty-product-highlight > img:last-of-type {
+	position: absolute;
+	z-index: 0;
+	left: calc(50% - -165px);
+	top: 145px;
+	transform: translateX(-50%);
+	width: 350px;
+	max-width: unset;
+}
+
+.wp-block-planty-product-highlight > :nth-child(2) {
+	position: relative;
+	z-index: 1;
+	justify-self: center;
+	padding: 0;
+	margin: 0;
+	height: auto;
+}
+
+@media (max-width: 420px) {
+	.wp-block-planty-product-highlight > img:first-of-type {
+		display: none;
+	}
+
+	.wp-block-planty-product-highlight > img:last-of-type {
+		display: none;
+	}
+}
