@@ -42,8 +42,8 @@ class JSXBlock
             filemtime("{$this->dir}/{$this->name}/style.css")
         );
 
-        $method = ucfirst($this->name) . "Render";
-        
+        $method = str_replace('-', '', ucwords($this->name, '-')) . "Render";
+
         register_block_type("planty/{$this->name}", array(
             'editor_script' => $this->name,
             'editor_style' => "{$this->name}-editor",
