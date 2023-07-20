@@ -21,6 +21,7 @@ class Planty
 		(new JSXBlock\TastesBlock('tastes'))->Register();
 		(new JSXBlock\SectionBlock('section'))->Register();
 		(new JSXBlock\ProductHighlightBlock('product-highlight'))->Register();
+		(new JSXBlock\TeamBlock('team'))->Register();
 	}
 
 	public function scripts()
