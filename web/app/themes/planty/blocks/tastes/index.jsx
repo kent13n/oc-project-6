@@ -84,12 +84,12 @@ registerBlockType("planty/tastes", {
 					<PanelBody title="Goûts" initialOpen={false}>
 						<__experimentalNumberControl
 							label="Nombre de goûts:"
-							min={0}
+							min={1}
 							max={12}
 							value={attributes.nb}
 							onChange={(val) => {
 								setAttributes({
-									nb: val,
+									nb: parseInt(val)||1,
 								});
 							}}
 						/>

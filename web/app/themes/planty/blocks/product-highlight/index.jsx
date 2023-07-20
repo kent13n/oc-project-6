@@ -29,7 +29,6 @@ registerBlockType("planty/product-highlight", {
 
 function Render(attributes, setAttributes) {
 	const { image, enableLaurel } = attributes;
-	console.log(attributes);
 	const imageExist = typeof image !== "undefined" && image !== "";
 
 	const upload = (
