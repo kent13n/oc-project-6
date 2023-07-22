@@ -37,7 +37,8 @@ function Render(attributes, setAttributes) {
 				<MediaUpload
 					type="image"
 					onSelect={(image) => {
-						setAttributes({ image: image.sizes.full.url });
+						let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
+						setAttributes({ image: url });
 					}}
 					render={({ open }) => {
 						return (

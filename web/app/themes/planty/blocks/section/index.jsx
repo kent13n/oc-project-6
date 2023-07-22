@@ -95,8 +95,9 @@ registerBlockType("planty/section", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
+								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
 								setAttributes({
-									backgroundImage: image.sizes.full.url,
+									backgroundImage: url,
 								});
 							}}
 							render={({ open }) => (

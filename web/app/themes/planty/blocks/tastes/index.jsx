@@ -26,10 +26,11 @@ registerBlockType("planty/tastes", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
+								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
 								if (!tastes[i]) tastes[i] = {};
 								const item = { ...tastes[i] };
 								item.imageID = image.id;
-								item.imageSrc = image.sizes.full.url;
+								item.imageSrc = url;
 								const items = [...tastes];
 								items[i] = item;
 								setAttributes({ tastes: items });

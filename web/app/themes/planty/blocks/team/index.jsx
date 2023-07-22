@@ -15,7 +15,6 @@ registerBlockType("planty/team", {
 	icon: "buddicons-buddypress-logo", // check icon here : https://developer.wordpress.org/resource/dashicons/
 	category: "theme",
 	edit({ className, attributes, setAttributes }) {
-        console.log(attributes);
 		const { nb, teammates } = attributes;
 		const nb_teammates =
 			parseInt(nb) !== NaN && parseInt(nb) > 0 ? parseInt(nb) : 1;
@@ -27,9 +26,10 @@ registerBlockType("planty/team", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
+								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
 								if (!teammates[i]) teammates[i] = {};
 								const item = { ...teammates[i] };
-								item.photo = image.sizes.full.url;
+								item.photo = url;
 								const items = [...teammates];
 								items[i] = item;
 								setAttributes({ teammates: items });

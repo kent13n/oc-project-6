@@ -26,10 +26,11 @@ registerBlockType("planty/testimonial", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
+								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
 								if (!testimonials[i]) testimonials[i] = {};
 								const item = { ...testimonials[i] };
 								item.imageID = image.id;
-								item.imageSrc = image.sizes.full.url;
+								item.imageSrc = url;
 								const items = [...testimonials];
 								items[i] = item;
 								setAttributes({ testimonials: items });
