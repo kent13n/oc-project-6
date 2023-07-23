@@ -22,7 +22,6 @@ registerBlockType("planty/section", {
 	icon: "text-page",
 	category: "theme",
 	edit({ className, attributes, setAttributes }) {
-		console.log(attributes);
 		const {
 			waveSeparator,
 			waveHeight,
@@ -316,7 +315,10 @@ function GenerateStyle(attributes) {
 		) {
 			if (!style.backgroundSize) style.backgroundSize = "";
 			style.backgroundSize =
-				style.backgroundSize + " " + attributes.backgroundImageHeight + "px";
+				style.backgroundSize +
+				" " +
+				attributes.backgroundImageHeight +
+				"px";
 		}
 	}
 

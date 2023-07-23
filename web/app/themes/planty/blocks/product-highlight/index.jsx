@@ -37,7 +37,9 @@ function Render(attributes, setAttributes) {
 				<MediaUpload
 					type="image"
 					onSelect={(image) => {
-						let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
+						let url =
+							image.sizes.full.url.replace("http://", "//") ||
+							image.sizes.full.url;
 						setAttributes({ image: url });
 					}}
 					render={({ open }) => {
@@ -70,7 +72,7 @@ function Render(attributes, setAttributes) {
 								value={attributes.laurelLeftX}
 								onChange={(val) => {
 									setAttributes({
-										laurelLeftX: val,
+										laurelLeftX: parseInt(val) || 0,
 									});
 								}}
 							/>
@@ -79,7 +81,7 @@ function Render(attributes, setAttributes) {
 								value={attributes.laurelLeftY}
 								onChange={(val) => {
 									setAttributes({
-										laurelLeftY: val,
+										laurelLeftY: parseInt(val) || 0,
 									});
 								}}
 							/>
@@ -92,7 +94,7 @@ function Render(attributes, setAttributes) {
 								value={attributes.laurelRightX}
 								onChange={(val) => {
 									setAttributes({
-										laurelRightX: val,
+										laurelRightX: parseInt(val) || 0,
 									});
 								}}
 							/>
@@ -101,7 +103,7 @@ function Render(attributes, setAttributes) {
 								value={attributes.laurelRightY}
 								onChange={(val) => {
 									setAttributes({
-										laurelRightY: val,
+										laurelRightY: parseInt(val) || 0,
 									});
 								}}
 							/>
