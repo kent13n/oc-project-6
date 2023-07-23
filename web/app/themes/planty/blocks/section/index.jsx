@@ -12,6 +12,7 @@ const {
 	TextControl,
 	Button,
 	ToggleControl,
+	SelectControl,
 	__experimentalNumberControl,
 } = wp.components;
 const { __ } = wp.i18n;
@@ -21,6 +22,7 @@ registerBlockType("planty/section", {
 	icon: "text-page",
 	category: "theme",
 	edit({ className, attributes, setAttributes }) {
+		console.log(attributes);
 		const {
 			waveSeparator,
 			waveHeight,
@@ -31,23 +33,7 @@ registerBlockType("planty/section", {
 			backgroundImagePositionX,
 			backgroundImagePositionY,
 		} = attributes;
-		const style = {};
-		if (typeof attributes.backgroundColor !== "undefined") {
-			style.backgroundColor = attributes.backgroundColor;
-		}
-
-		if (
-			typeof backgroundImage !== "undefined" &&
-			backgroundImage !== "" &&
-			enableBackgroundImage
-		) {
-			style.backgroundImage = `url(${backgroundImage})`;
-			style.backgroundPosition = `${backgroundImagePositionX}px ${backgroundImagePositionY}px`;
-		}
-
-		if (!backgroundImageRepeat) {
-			style.backgroundRepeat = "no-repeat";
-		}
+		const style = GenerateStyle(attributes);
 
 		const height =
 			typeof waveHeight === "number" && waveHeight > 0 ? waveHeight : 40;
@@ -56,6 +42,25 @@ registerBlockType("planty/section", {
 			height,
 			waveMarker
 		);
+
+		const backgroundOriginOptions = [
+			{
+				value: "top left",
+				label: "Top Left",
+			},
+			{
+				value: "top right",
+				label: "Top Right",
+			},
+			{
+				value: "bottom left",
+				label: "Bottom Left",
+			},
+			{
+				value: "bottom right",
+				label: "Bottom Right",
+			},
+		];
 
 		return (
 			<div className={className} style={style}>
@@ -95,7 +100,11 @@ registerBlockType("planty/section", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
-								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
+								let url =
+									image.sizes.full.url.replace(
+										"http://",
+										"//"
+									) || image.sizes.full.url;
 								setAttributes({
 									backgroundImage: url,
 								});
@@ -122,16 +131,15 @@ registerBlockType("planty/section", {
 						/>
 
 						<div className="components-section-background-position">
-							<p>
-								Background position
-							</p>
+							<p>Background position</p>
 							<div className="components-section-background-position-body">
 								<__experimentalNumberControl
 									label="X:"
 									value={attributes.backgroundImagePositionX}
 									onChange={(val) => {
 										setAttributes({
-											backgroundImagePositionX: val,
+											backgroundImagePositionX:
+												parseInt(val) || 0,
 										});
 									}}
 								/>
@@ -140,12 +148,51 @@ registerBlockType("planty/section", {
 									value={attributes.backgroundImagePositionY}
 									onChange={(val) => {
 										setAttributes({
-											backgroundImagePositionY: val,
+											backgroundImagePositionY:
+												parseInt(val) || 0,
+										});
+									}}
+								/>
+							</div>
+							<p>Background size</p>
+							<div className="components-section-background-position-body">
+								<__experimentalNumberControl
+									label="W:"
+									value={attributes.backgroundImageWidth}
+									onChange={(val) => {
+										val =
+											val === ""
+												? null
+												: parseInt(val) || 0;
+										setAttributes({
+											backgroundImageWidth: val,
+										});
+									}}
+								/>
+								<__experimentalNumberControl
+									label="H:"
+									value={attributes.backgroundImageHeight}
+									onChange={(val) => {
+										val =
+											val === ""
+												? null
+												: parseInt(val) || 0;
+										setAttributes({
+											backgroundImageHeight: val,
 										});
 									}}
 								/>
 							</div>
 						</div>
+
+						<SelectControl
+							label="Background origin:"
+							value={attributes.backgroundOrigin}
+							onChange={(backgroundOrigin) => {
+								setAttributes({ backgroundOrigin });
+							}}
+							options={backgroundOriginOptions}
+						/>
 					</PanelBody>
 					<PanelBody title="Wave Separator" initialOpen={false}>
 						<ToggleControl
@@ -181,22 +228,7 @@ registerBlockType("planty/section", {
 		);
 	},
 	save({ className, attributes }) {
-		const style = {};
-		if (typeof attributes.backgroundColor !== "undefined") {
-			style.backgroundColor = attributes.backgroundColor;
-		}
-
-		if (
-			typeof attributes.backgroundImage !== "undefined" &&
-			attributes.backgroundImage !== "" &&
-			attributes.enableBackgroundImage
-		) {
-			style.backgroundImage = `url(${attributes.backgroundImage})`;
-			style.backgroundPosition = `${attributes.backgroundImagePositionX}px ${attributes.backgroundImagePositionY}px`;
-			if (!attributes.backgroundImageRepeat) {
-				style.backgroundRepeat = "no-repeat";
-			}
-		}
+		const style = GenerateStyle(attributes);
 
 		const height =
 			typeof attributes.waveHeight === "number" &&
@@ -254,4 +286,43 @@ function GenerateSeparator(divider, height, marker = false) {
 	) : (
 		""
 	);
+}
+
+function GenerateStyle(attributes) {
+	const style = {};
+	if (typeof attributes.backgroundColor !== "undefined") {
+		style.backgroundColor = attributes.backgroundColor;
+	}
+
+	if (
+		typeof attributes.backgroundImage !== "undefined" &&
+		attributes.backgroundImage !== "" &&
+		attributes.enableBackgroundImage
+	) {
+		const p = attributes.backgroundOrigin.split(" ");
+		style.backgroundImage = `url(${attributes.backgroundImage})`;
+		style.backgroundPosition = `${p[0]} ${attributes.backgroundImagePositionX}px ${p[1]} ${attributes.backgroundImagePositionY}px`;
+
+		if (
+			attributes.backgroundImageWidth !== null &&
+			attributes.backgroundImageWidth > 0
+		) {
+			style.backgroundSize = `${attributes.backgroundImageWidth}px`;
+		}
+
+		if (
+			attributes.backgroundImageHeight !== null &&
+			attributes.backgroundImageHeight > 0
+		) {
+			if (!style.backgroundSize) style.backgroundSize = "";
+			style.backgroundSize =
+				style.backgroundSize + " " + attributes.backgroundImageHeight + "px";
+		}
+	}
+
+	if (!attributes.backgroundImageRepeat) {
+		style.backgroundRepeat = "no-repeat";
+	}
+
+	return style;
 }

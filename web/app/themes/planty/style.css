@@ -80,6 +80,84 @@ p {
 	text-align: center;
 }
 
+.margin-bottom-7 {
+	margin-bottom: 7px !important;
+}
+
+.planty-btn {
+	box-sizing: border-box;
+	border: none;
+	padding: 10px 57px;
+	margin: 25px 0 !important;
+	display: inline-flex !important;
+	text-decoration: none;
+	color: #fff;
+	background-color: #dc9f96;
+	border-radius: 7px;
+	margin-left: 10px;
+	width: auto;
+	min-width: 100px;
+	height: 55px;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 37px;
+	letter-spacing: 0;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.planty-btn > * {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	box-sizing: border-box;
+	background: none !important;
+	border: none;
+	border-radius: 0 !important;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+	margin: 0;
+	opacity: 1;
+	padding: 0 !important;
+	text-align: center;
+	text-decoration: none;
+	text-transform: none !important;
+	transition: none;
+	height: auto;
+}
+
+.planty-btn > *:hover,
+.planty-btn:hover {
+	background-color: #c02e44;
+	text-decoration: none !important;
+}
+
+.margin-bottom-0 {
+	margin-bottom: 0 !important;
+}
+
+.margin-bottom-27 {
+	margin-bottom: 27px !important;
+}
+
+.padding-bottom-0 {
+	padding-bottom: 0 !important;
+}
+
+.max-width-670 {
+	max-width: 670px;
+	margin: 0 auto;
+}
+
+.line-height-24 {
+	line-height: 24px !important;
+}
+
 /****** Header ***********/
 
 #site-header {
