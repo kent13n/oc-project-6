@@ -326,3 +326,12 @@ input[type="submit"]:hover {
 .wp-block[data-align="full"] {
 	max-width: none;
 }
+
+.can-separator img {
+	height: 162px;
+	object-fit: cover;
+}
+
+.background-flower-position {
+	background-position: left calc(50% - 185px) bottom calc(50% - 145px) !important;
+}
