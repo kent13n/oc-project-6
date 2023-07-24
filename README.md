@@ -35,11 +35,15 @@ wp theme activate planty
 ```
 6. Active plugin gutenberg forms
 ```
-composer install --working-dir ./web/app/plugins/gutenberg-forms && wp plugin activate gutenberg-forms
+wp plugin activate gutenberg-forms
 ```
 7. Run the migrations to set up the necessary database tables and data by running the following command:
 ```
 wp migrate
+```
+8. Regenerate images
+```
+wp media regenerate
 ```
 
 ## Usage
