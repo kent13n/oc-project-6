@@ -29,6 +29,14 @@
 
                 </div><!-- .header-titles -->
 
+                <button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
+                    <span class="toggle-inner">
+                        <span class="toggle-icon">
+                            <?php twentytwenty_the_theme_svg('ellipsis'); ?>
+                        </span>
+                    </span>
+                </button><!-- .nav-toggle -->
+
             </div><!-- .header-titles-wrapper -->
 
             <div class="header-navigation-wrapper">
@@ -58,3 +66,5 @@
 
         </div><!-- .header-inner -->
     </header>
+
+    <?php get_template_part( 'template-parts/modal-menu' );

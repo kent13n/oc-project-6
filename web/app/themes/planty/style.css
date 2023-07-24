@@ -176,6 +176,24 @@ p {
 	margin: 0 auto;
 }
 
+.header-titles-wrapper {
+	height: 100%;
+}
+
+.modal-menu > li > .ancestor-wrapper > a {
+	color: #000;
+	text-decoration: none !important;
+}
+
+.modal-menu > li > .ancestor-wrapper > a:active,
+.modal-menu > li > .ancestor-wrapper > a:hover {
+	text-decoration: none;
+}
+
+.modal-menu > li > .ancestor-wrapper > a:hover {
+	color: var(--button-hover);
+}
+
 /****** Primary Nav ***********/
 .header-navigation-wrapper,
 .primary-menu-wrapper {
@@ -245,8 +263,8 @@ ul.primary-menu {
 /****** Footer Nav ***********/
 #site-footer {
 	height: 60px;
-	padding: 0;
-	margin: 15px 0 0 0;
+	padding: 0 !important;
+	margin: 0;
 }
 
 #site-footer nav {
@@ -255,8 +273,11 @@ ul.primary-menu {
 
 .footer-menu {
 	height: 100%;
+	display: flex;
 	justify-content: center;
 	align-items: center;
+	letter-spacing: normal;
+	margin: 0 !important;
 }
 
 .footer-menu li {
