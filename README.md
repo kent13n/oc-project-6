@@ -33,7 +33,11 @@ wp core install --title="Planty" --url=planty.local --admin_name=admin --admin_p
 ```
 wp theme activate planty
 ```
-6. Run the migrations to set up the necessary database tables and data by running the following command:
+6. Active plugin gutenberg forms
+```
+wp plugin activate gutenberg-forms
+```
+7. Run the migrations to set up the necessary database tables and data by running the following command:
 ```
 wp migrate
 ```

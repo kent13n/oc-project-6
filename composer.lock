@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7049a634227f68437c50b2b7d620c3a",
+    "content-hash": "ba94971107656700fdfd4324d7f28715",
     "packages": [
         {
             "name": "composer/installers",
@@ -212,6 +212,44 @@
                 }
             ],
             "time": "2023-02-25T20:23:15+00:00"
+        },
+        {
+            "name": "kent13n/gutenberg-forms",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kent13n/gutenberg-forms.git",
+                "reference": "974ed5d98c779d7175bc2dea4aa53d5aae6cdbee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kent13n/gutenberg-forms/zipball/974ed5d98c779d7175bc2dea4aa53d5aae6cdbee",
+                "reference": "974ed5d98c779d7175bc2dea4aa53d5aae6cdbee",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^2.2"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "GutenbergForms\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kent13n"
+                }
+            ],
+            "description": "Gutenberg Forms allows you to quickly and effortlessly create forms inside WordPress block editor.",
+            "support": {
+                "source": "https://github.com/kent13n/gutenberg-forms/tree/v0.0.2",
+                "issues": "https://github.com/kent13n/gutenberg-forms/issues"
+            },
+            "time": "2023-07-24T13:17:51+00:00"
         },
         {
             "name": "oscarotero/env",

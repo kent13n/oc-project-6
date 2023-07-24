@@ -33,6 +33,11 @@
       "name": "kent13n/wp-helper-migrations",
       "type": "vcs",
       "url": "https://github.com/kent13n/wp-helper-migrations.git"
+    },
+    {
+      "name": "kent13n/gutenberg-forms",
+      "type": "vcs",
+      "url": "https://github.com/kent13n/gutenberg-forms.git"
     }
   ],
   "require": {
@@ -46,7 +51,8 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwenty": "^2.2",
-    "wpackagist-plugin/memcached": "^4.0"
+    "wpackagist-plugin/memcached": "^4.0",
+    "kent13n/gutenberg-forms": "^0.0.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
