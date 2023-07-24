@@ -4,11 +4,18 @@
  * Based on an idea and code by webdev studios: https://webdevstudios.com/2015/11/03/loading-the-optimal-wordpress-object-cache-implementation-in-your-production-staging-and-local-development-environments/
  */
 
-
-global $wpdb;
 $plugin_dir = (defined('WP_PLUGIN_DIR') ? WP_PLUGIN_DIR : WP_CONTENT_DIR . '/plugins');
-$result = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}options WHERE option_name = 'active_plugins'");
-$plugins = (count($result) > 0) ? unserialize($result[0]->option_value) : null;
+
+try {
+	ob_start();
+	global $wpdb;
+	$result = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}options WHERE option_name = 'active_plugins'");
+	ob_end_clean();
+} catch (Exception $ex) {
+	$result = [];
+}
+
+$plugins = (count($result) > 0) ? unserialize($result[0]->option_value) : [];
 $activation = (isset($_GET['action']) && $_GET['action'] === 'activate' && isset($_GET['plugin']) && $_GET['plugin'] === 'memcached/object-cache.php');
 
 // Then load our object cache plugin (if available).
