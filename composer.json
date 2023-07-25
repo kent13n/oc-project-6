@@ -52,7 +52,7 @@
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-theme/twentytwenty": "^2.2",
     "wpackagist-plugin/memcached": "^4.0",
-    "kent13n/gutenberg-forms": "^0.0.3"
+    "kent13n/gutenberg-forms": "^0.0.5"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
