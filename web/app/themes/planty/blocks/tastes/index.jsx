@@ -26,7 +26,11 @@ registerBlockType("planty/tastes", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
-								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
+								let url =
+									image.sizes.full.url.replace(
+										"http://",
+										"//"
+									) || image.sizes.full.url;
 								if (!tastes[i]) tastes[i] = {};
 								const item = { ...tastes[i] };
 								item.imageID = image.id;
@@ -38,6 +42,7 @@ registerBlockType("planty/tastes", {
 							render={({ open }) => {
 								if (!tastes[i]) tastes[i] = {};
 								const img = tastes[i].imageSrc || "";
+								const taste = tastes[i].title || "photo goût";
 
 								return (
 									<Button
@@ -49,7 +54,7 @@ registerBlockType("planty/tastes", {
 										}
 									>
 										{img ? (
-											<img src={img} />
+											<img src={img} alt={taste} />
 										) : (
 											"Choisir une image"
 										)}
@@ -90,7 +95,7 @@ registerBlockType("planty/tastes", {
 							value={attributes.nb}
 							onChange={(val) => {
 								setAttributes({
-									nb: parseInt(val)||1,
+									nb: parseInt(val) || 1,
 								});
 							}}
 						/>

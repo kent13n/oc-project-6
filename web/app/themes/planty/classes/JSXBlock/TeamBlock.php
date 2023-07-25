@@ -21,7 +21,7 @@ class TeamBlock extends JSXBlock
 
             $html .= <<<HTML
             <div class="teammate">
-                <img src="{$photo}">
+                <img src="{$photo}" alt="Photo de {$name}">
                 <h3>{$name}</h3>
                 <p>{$role}</p>
             </div>

@@ -17,13 +17,14 @@ class TastesBlock extends JSXBlock
         foreach ($tastes as $taste) {
             $imageSrc = isset($taste['imageSrc']) ? $taste['imageSrc'] : '';
             $title = isset($taste['title']) ? $taste['title'] : '';
+            $alt = esc_html($title);
 
             $html .= <<<HTML
-			<div class="taste">
-				<img src="{$imageSrc}">
-				<h3>{$title}</h3>
-			</div>
-		HTML;
+                <div class="taste">
+                    <img src="{$imageSrc}" alt="photo du goût {$alt}">
+                    <h3>{$title}</h3>
+                </div>
+            HTML;
         }
 
         return $html . '</div>';

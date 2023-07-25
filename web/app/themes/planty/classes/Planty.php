@@ -13,6 +13,7 @@ class Planty
 		add_action('after_setup_theme', [$this, 'after_setup_theme']);
 		add_action('init', [$this, 'init']);
 		add_action('admin_head', [$this, 'admin_head']);
+		add_action('wp_footer', [$this, 'wp_footer']);
 	}
 
 	public function init()
@@ -68,5 +69,10 @@ class Planty
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 		HTML;
+	}
+
+	public function wp_footer()
+	{
+		wp_dequeue_style('core-block-supports');
 	}
 }

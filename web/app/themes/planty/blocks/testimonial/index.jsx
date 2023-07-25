@@ -26,7 +26,11 @@ registerBlockType("planty/testimonial", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
-								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
+								let url =
+									image.sizes.full.url.replace(
+										"http://",
+										"//"
+									) || image.sizes.full.url;
 								if (!testimonials[i]) testimonials[i] = {};
 								const item = { ...testimonials[i] };
 								item.imageID = image.id;
@@ -38,6 +42,9 @@ registerBlockType("planty/testimonial", {
 							render={({ open }) => {
 								if (!testimonials[i]) testimonials[i] = {};
 								const img = testimonials[i].imageSrc || "";
+								const name =
+									testimonials[i].title ||
+									"photo du commentaire";
 
 								return (
 									<Button
@@ -49,7 +56,7 @@ registerBlockType("planty/testimonial", {
 										}
 									>
 										{img ? (
-											<img src={img} />
+											<img src={img} alt={name} />
 										) : (
 											"Choisir une image"
 										)}
@@ -109,7 +116,7 @@ registerBlockType("planty/testimonial", {
 							value={attributes.nb}
 							onChange={(val) => {
 								setAttributes({
-									nb: parseInt(val)||1,
+									nb: parseInt(val) || 1,
 								});
 							}}
 						/>

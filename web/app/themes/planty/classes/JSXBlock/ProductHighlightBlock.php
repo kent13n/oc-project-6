@@ -23,7 +23,7 @@ class ProductHighlightBlock extends JSXBlock
         $html = '<div class="wp-block-planty-product-highlight">';
         $html .= <<<HTML
             <img src="/app/themes/planty/assets/laurel-left.png" alt="Laurel left" style="{$laurelLeftStyle}">
-            <img src="{$attributes['image']}" alt="plop">
+            <img src="{$attributes['image']}" alt="product highlight">
             <img src="/app/themes/planty/assets/laurel-right.png" alt="Laurel right" style="{$laurelRightStyle}">
         HTML;
         return $html . '</div>';

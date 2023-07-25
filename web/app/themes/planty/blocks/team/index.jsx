@@ -26,7 +26,11 @@ registerBlockType("planty/team", {
 						<MediaUpload
 							type="image"
 							onSelect={(image) => {
-								let url = image.sizes.full.url.replace("http://", "//") || image.sizes.full.url;
+								let url =
+									image.sizes.full.url.replace(
+										"http://",
+										"//"
+									) || image.sizes.full.url;
 								if (!teammates[i]) teammates[i] = {};
 								const item = { ...teammates[i] };
 								item.photo = url;
@@ -37,6 +41,7 @@ registerBlockType("planty/team", {
 							render={({ open }) => {
 								if (!teammates[i]) teammates[i] = {};
 								const photo = teammates[i].photo || "";
+								const teammate = teammates[i].name || "photo";
 
 								return (
 									<Button
@@ -48,7 +53,7 @@ registerBlockType("planty/team", {
 										}
 									>
 										{photo ? (
-											<img src={photo} />
+											<img src={photo} alt={teammate} />
 										) : (
 											"Choisir une image"
 										)}
@@ -57,40 +62,40 @@ registerBlockType("planty/team", {
 							}}
 						/>
 					</MediaUploadCheck>
-                    <RichText
-                        tagName="h3"
-                        placeholder="Nom"
-                        value={
-                            typeof teammates[i] !== "undefined"
-                                ? teammates[i].name
-                                : ""
-                        }
-                        onChange={(name) => {
-                            if (!teammates[i]) teammates[i] = {};
-                            const item = { ...teammates[i] };
-                            item.name = name;
-                            const items = [...teammates];
-                            items[i] = item;
-                            setAttributes({ teammates: items });
-                        }}
-                    />
-                    <RichText
-                        tagName="p"
-                        placeholder="Rôle"
-                        value={
-                            typeof teammates[i] !== "undefined"
-                                ? teammates[i].role
-                                : ""
-                        }
-                        onChange={(role) => {
-                            if (!teammates[i]) teammates[i] = {};
-                            const item = { ...teammates[i] };
-                            item.role = role;
-                            const items = [...teammates];
-                            items[i] = item;
-                            setAttributes({ teammates: items });
-                        }}
-                    />
+					<RichText
+						tagName="h3"
+						placeholder="Nom"
+						value={
+							typeof teammates[i] !== "undefined"
+								? teammates[i].name
+								: ""
+						}
+						onChange={(name) => {
+							if (!teammates[i]) teammates[i] = {};
+							const item = { ...teammates[i] };
+							item.name = name;
+							const items = [...teammates];
+							items[i] = item;
+							setAttributes({ teammates: items });
+						}}
+					/>
+					<RichText
+						tagName="p"
+						placeholder="Rôle"
+						value={
+							typeof teammates[i] !== "undefined"
+								? teammates[i].role
+								: ""
+						}
+						onChange={(role) => {
+							if (!teammates[i]) teammates[i] = {};
+							const item = { ...teammates[i] };
+							item.role = role;
+							const items = [...teammates];
+							items[i] = item;
+							setAttributes({ teammates: items });
+						}}
+					/>
 				</div>
 			);
 		});
@@ -106,7 +111,7 @@ registerBlockType("planty/team", {
 							value={attributes.nb}
 							onChange={(val) => {
 								setAttributes({
-									nb: parseInt(val)||1,
+									nb: parseInt(val) || 1,
 								});
 							}}
 						/>

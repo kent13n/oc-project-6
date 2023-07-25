@@ -20,7 +20,7 @@ class TestimonialBlock extends JSXBlock
 
             $html .= <<<HTML
 			<div class="testimonial">
-				<img src="{$imageSrc}">
+				<img src="{$imageSrc}" alt="Photo de {$title}">
 				<div class="testimonial-content">
 					<h2>{$title}</h2>
 					<p>{$content}</p>

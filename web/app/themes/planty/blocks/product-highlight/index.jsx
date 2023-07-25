@@ -53,7 +53,7 @@ function Render(attributes, setAttributes) {
 								}
 							>
 								{imageExist ? (
-									<img src={image} />
+									<img src={image} alt="product highlight" />
 								) : (
 									"Choisir une image"
 								)}
